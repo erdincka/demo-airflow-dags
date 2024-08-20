@@ -12,6 +12,13 @@ with DAG(
         "retry_delay": timedelta(minutes=1),
     },
     schedule_interval="0 1 * * *",
+    access_control={
+        'role_All': {
+            'can_read',
+            'can_edit',
+            'can_delete'
+        }
+    }
 ) as dag:
     # task_read_csv = PythonOperator(
     #     task_id="read_from_csv", python_callable=spark_etl
