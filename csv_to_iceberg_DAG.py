@@ -24,6 +24,13 @@ dag = DAG(
     default_args=default_args,
     description="Read from local CSV and write to Apache Iceberg table",
     schedule_interval=timedelta(days=1),
+    access_control={
+        'role_All': {
+            'can_read',
+            'can_edit',
+            'can_delete'
+        }
+    }
 )
 
 
