@@ -25,7 +25,7 @@ def parse_custom_timestamp(timestamp):
     return parsed_time
 
 def fetch_air_quality_data(city):
-    token = "6afff0ba0ec07fc165bf7f377467941056def3f5"
+    token = "<use your token>"
     city_map = {
         "Shanghai": "shanghai",
         "Israel": "israel",
@@ -73,9 +73,9 @@ def fetch_air_quality_data(city):
         
         # Connect to the MariaDB database
         conn = mysql.connector.connect(
-            host="10.1.1.35",
+            host="<use your server>",
             user="root",
-            password="mapr123",
+            password="<use your password>",
             database="air_quality_db"
         )
         cursor = conn.cursor()
@@ -108,7 +108,7 @@ with DAG(
     description='A DAG to fetch and process air quality data for multiple cities',
     schedule_interval='0 7 * * *',  # Run at 7 AM  every day
     access_control={
-        'role_<username>': {
+        'role_All': {
             'can_read',
             'can_edit',
             'can_delete'
